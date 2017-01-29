@@ -37,38 +37,41 @@ class Tabs {
 	 * @return {[type]} [description]
 	 */
 	_initElement() {
-			this.element.addClass(this.selector.PREFIX);
-			this.tabs = $(this.options.tabs);
-			this.panels = $(this.options.panels);
-			this.nav = $(this.options.nav);
-			this.content = $(this.options.content);
+		this.element.addClass(this.selector.PREFIX);
+		this.tabs = $(this.options.tabs);
+		this.panels = $(this.options.panels);
+		this.nav = $(this.options.nav);
+		this.content = $(this.options.content);
 
-			this.length = this.tabs.length;
-		}
-		/**
-		 * [初始化元素上的数据和样式]
-		 * @return {[type]} [description]
-		 */
+		this.length = this.tabs.length;
+	}
+
+	/**
+	 * [初始化元素上的数据和样式]
+	 * @return {[type]} [description]
+	 */
 	_initTabs() {
-			this.nav && this.nav.addClass(this.selector.NAV);
-			this.tabs.addClass(this.selector.TAB).each((index, tab) => {
-				$(tab).data('value', index);
-			});
-			this.tabs.eq(this.fromIndex).addClass(this.selector.ACTIVE);
-		}
-		/**
-		 * [初始化元素上的数据和样式]
-		 * @return {[type]} [description]
-		 */
+		this.nav && this.nav.addClass(this.selector.NAV);
+		this.tabs.addClass(this.selector.TAB).each((index, tab) => {
+			$(tab).data('value', index);
+		});
+		this.tabs.eq(this.fromIndex).addClass(this.selector.ACTIVE);
+	}
+
+	/**
+	 * [初始化元素上的数据和样式]
+	 * @return {[type]} [description]
+	 */
 	_initPanels() {
-			this.content.addClass(this.selector.CONTENT);
-			this.panels.addClass(this.selector.PANEL);
-			this.panels.eq(this.fromIndex).addClass(this.selector.ACTIVE);
-		}
-		/**
-		 * [绑定事件]
-		 * @return {[type]} [description]
-		 */
+		this.content.addClass(this.selector.CONTENT);
+		this.panels.addClass(this.selector.PANEL);
+		this.panels.eq(this.fromIndex).addClass(this.selector.ACTIVE);
+	}
+
+	/**
+	 * [绑定事件]
+	 * @return {[type]} [description]
+	 */
 	_bindTabs() {
 		this.tabs.click((e) => {
 			const $el = $(e.target);
